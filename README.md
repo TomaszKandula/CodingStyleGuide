@@ -47,11 +47,10 @@
 10.	Do not set value for variable on declaration if it is the same as default (like `false` for `bool` or `0` for integer).
 11.	Delete unused assemblies (warnings: using directive is not required by the code and can be safely removed).
 12.	Avoid using `#region`.
-13.	Delete redundancies code:
-[].	Warnings:
+13.	Delete redundancies code - warnings:
 -	Qualifier is redundant,
 -	Empty object or collection initializer list is redundant.
-[].	Hint:
+14.	Delete redundancies code - hint:
 -	Empty argument list is redundant,
 -	Parentheses are redundant if attribute has no arguments,
 -	Redundant `else` keyword,
