@@ -11,9 +11,9 @@
 ### NAMING
 
 1.	Constants must be uppercase.
-2.	Fields start with `F` prefix.
-3.	Local variables start with `L` prefix.
-4.	Parameters start with `A` prefix.
+2.	Fields start with `_` (underscore) prefix.
+3.	Local variables start with lowercase.
+4.	Parameters start with lowercase.
 5.	Interface start with `I` prefix.
 6.	Type parameters start with `T` prefix.
 7.	Methods start with uppercase.
@@ -45,7 +45,7 @@
 8.	Use `==` to compare objects instead of `Equals` if there is no reason to use `Equals`.
 9.	Use `.Any()` instead of `.Count > 0` for Lists.
 10.	Do not set value for variable on declaration if it is the same as default (like `false` for `bool` or `0` for integer).
-11.	Delete unused assemblies (warnings: using directive is not required by the code and can be safely removed).
+11.	Delete unused assemblies.
 12.	Avoid using `#region`.
 13.	Delete redundancies code - warnings:
 -	Qualifier is redundant,
@@ -96,7 +96,7 @@ Example:
 ```csharp
 // Act
 // Assert
-LResult.Should().Be(“Example”);
+result.Should().Be(“Example”);
 ```
 
 10.	Test structure:
@@ -106,7 +106,7 @@ LResult.Should().Be(“Example”);
 public void ValidateAddArticle_WhenAllFieldsAreCorrect_ShouldFinishSuccessfully() 
 {
     // Arrange
-    var LAddArticleCommand = new AddArticleCommand 
+    var command = new AddArticleCommand 
     { 
         Title = DataProvider.GetRandomString(),
         Description = DataProvider.GetRandomString(),
@@ -115,11 +115,11 @@ public void ValidateAddArticle_WhenAllFieldsAreCorrect_ShouldFinishSuccessfully(
     };
 
     // Act
-    var LValidator = new AddArticleCommandValidator();
-    var LResult = LValidator.Validate(LAddArticleCommand);
+    var validator = new AddArticleCommandValidator();
+    var result = validator.Validate(command);
 
     // Assert
-    LResult.Errors.Should().BeEmpty();
+    result.Errors.Should().BeEmpty();
 }
 ```
 
