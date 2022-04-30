@@ -65,7 +65,8 @@
 
 ### TESTS
 
-1.	Tests with condition should be named as follows 
+1. Use FluentAssertions library.
+2.	Tests with condition should be named as follows 
 
 `GivenPreconditions_WhenBehaviourName_ThenExpectedBehavior` 
 
@@ -73,7 +74,7 @@ Example:
 
 `GivenAccountExpired_WhenGetPrepaidAccountDetails_ThenCorrectResultReturned`
 
-2.	Tests without condition should be named as follows
+3.	Tests without condition should be named as follows
 
 `WhenBehaviourName_ThenExpectedBehavior` 
 
@@ -81,17 +82,17 @@ Example:
 
 `WhenAnalyticsViewNameAssigned_ThenContainsCorrectValue`
 
-3.	API tests must be located under separate folder in Test’s project.
-4.	All tests must be located in Test’s project.
-5.	Every test class should be located in similar folder path as tested class.
-6.	Test body should be divided into 3 sections by comments:
+4.	API tests must be located under separate folder in Test’s project.
+5.	All tests must be located in Test’s project.
+6.	Every test class should be located in similar folder path as tested class.
+7.	Test body should be divided into 3 sections by comments:
 -	`// Arrange` 
 -	`// Act` 
 -	`// Assert`
 
-7.	Each section should be separated by empty line.
-8.	If all arranges are inside `// Act` section - `// Arrange` comment still should be written before `// Act` even if its empty (in that case, no empty line between is needed).
-9.	If assert and act are the same piece of code and cannot be divided, then section should be named as follows:
+8.	Each section should be separated by empty line.
+9.	If all arranges are inside `// Act` section - `// Arrange` comment still should be written before `// Act` even if its empty (in that case, no empty line between is needed).
+10.	If assert and act are the same piece of code and cannot be divided, then section should be named as follows:
 
 ```csharp
 // Act
@@ -99,7 +100,7 @@ Example:
 result.Should().Be(“Example”);
 ```
 
-10.	Test structure:
+11.	Test structure:
 
 ```csharp
 [Fact]
@@ -108,10 +109,10 @@ public void ValidateAddArticle_WhenAllFieldsAreCorrect_ShouldFinishSuccessfully(
     // Arrange
     var command = new AddArticleCommand 
     { 
-        Title = DataProvider.GetRandomString(),
-        Description = DataProvider.GetRandomString(),
-        TextToUpload = DataProvider.GetRandomString(),
-        ImageToUpload = DataProvider.GetRandomString()
+        title = DataProvider.GetRandomString(),
+        description = DataProvider.GetRandomString(),
+        textToUpload = DataProvider.GetRandomString(),
+        imageToUpload = DataProvider.GetRandomString()
     };
 
     // Act
@@ -122,5 +123,3 @@ public void ValidateAddArticle_WhenAllFieldsAreCorrect_ShouldFinishSuccessfully(
     result.Errors.Should().BeEmpty();
 }
 ```
-
-11. Use FluentAssertions library.
